@@ -1,0 +1,31 @@
+elo:
+  k: 20
+  home_advantage: 3.0
+  init_rating: 1500.0
+  scale: 400.0
+
+rolling:
+  recent_games: 5
+  season_min_games: 3
+
+availability:
+  top_n_players: 5
+  lookback_games: 5
+
+feature_columns:
+  - elo_diff
+  - home_elo
+  - away_elo
+  - rest_diff
+  - home_rest_days
+  - away_rest_days
+  - home_b2b
+  - away_b2b
+  - home_off_eff_roll
+  - home_def_eff_roll
+  - away_off_eff_roll
+  - away_def_eff_roll
+  - form_diff
+  - home_avail_proxy
+  - away_avail_proxy
+  - season_game_num

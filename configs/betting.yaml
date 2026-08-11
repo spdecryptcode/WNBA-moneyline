@@ -1,0 +1,11 @@
+min_edge_ml: 0.025
+min_edge_spread: 0.02
+max_sigma: 16.0
+kelly_fraction: 0.25
+default_books: ["draftkings", "fanduel", "betmgm"]
+odds_api:
+  sport: basketball_wnba
+  regions: us
+  markets: h2h,spreads
+  odds_format: american
+  snapshot_slots: ["morning", "t60", "t5"]

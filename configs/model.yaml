@@ -1,0 +1,39 @@
+seasons_model: [2018, 2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026]
+seasons_elo_warmstart: [2015, 2016, 2017]
+season_types: [2]  # ESPN: 2 = regular season
+
+# Final untouched report folds (never used for hyperparam selection)
+walk_forward_test_seasons: [2023, 2024, 2025, 2026]
+# Inner walk-forward folds used only to pick hyperparameters
+hyperparam_search_seasons: [2020, 2021, 2022]
+
+lightgbm:
+  objective: regression
+  metric: l2
+  learning_rate: 0.05
+  num_leaves: 31
+  max_depth: 5
+  min_data_in_leaf: 25
+  feature_fraction: 0.8
+  bagging_fraction: 0.8
+  bagging_freq: 1
+  lambda_l1: 0.1
+  lambda_l2: 1.0
+  verbosity: -1
+  n_estimators: 400
+  early_stopping_rounds: 40
+
+hyperparam_search:
+  n_trials: 60
+  seed: 42
+  # Primary objective for selecting the winner (lower is better)
+  objective: walk_forward_log_loss  # walk_forward_log_loss | val_mae
+  secondary: walk_forward_mae
+
+margin_distribution:
+  family: student_t
+  df: 6
+  continuity_correction: 0.5
+
+calibration:
+  method: isotonic  # isotonic | beta

@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wnba-edge"
+version = "0.1.0"
+description = "WNBA moneyline and spread probability prediction system"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "pandas>=2.2",
+  "numpy>=1.26",
+  "pyarrow>=15",
+  "lightgbm>=4.3",
+  "scikit-learn>=1.4",
+  "scipy>=1.12",
+  "shap>=0.45",
+  "streamlit>=1.32",
+  "requests>=2.31",
+  "python-dotenv>=1.0",
+  "pyyaml>=6.0",
+  "pydantic>=2.6",
+  "matplotlib>=3.8",
+  "joblib>=1.3",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.3"]
+
+[project.scripts]
+wnba-ingest = "wnba_edge.cli:ingest_main"
+wnba-clean = "wnba_edge.cli:clean_main"
+wnba-features = "wnba_edge.cli:features_main"
+wnba-train = "wnba_edge.cli:train_main"
+wnba-predict = "wnba_edge.cli:predict_main"
+wnba-odds-snapshot = "wnba_edge.cli:odds_snapshot_main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
