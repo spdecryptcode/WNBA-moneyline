@@ -64,4 +64,3 @@ Then open **http://127.0.0.1:8501**
 
 - No paid data. Model evaluation (log loss / Brier / MAE) works on all seasons.
 - ROI / CLV only after free-tier odds history accumulates.
-- Project is fully separate from any marketing site repos.
