@@ -24,6 +24,8 @@ dependencies = [
   "matplotlib>=3.8",
   "joblib>=1.3",
   "tqdm>=4.66",
+  "fastapi>=0.110",
+  "uvicorn[standard]>=0.27",
 ]
 
 [project.optional-dependencies]
@@ -36,6 +38,7 @@ wnba-features = "wnba_edge.cli:features_main"
 wnba-train = "wnba_edge.cli:train_main"
 wnba-predict = "wnba_edge.cli:predict_main"
 wnba-odds-snapshot = "wnba_edge.cli:odds_snapshot_main"
+wnba-api = "wnba_edge.cli:api_main"
 
 [tool.setuptools.packages.find]
 where = ["src"]

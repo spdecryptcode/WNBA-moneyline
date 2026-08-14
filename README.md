@@ -5,7 +5,7 @@ Independent WNBA moneyline / spread probability system:
 - SportsDataverse historical stats (free)
 - Senior-DS cleaning + DQ reports
 - Shared margin-distribution model (LightGBM)
-- Calibration, odds/EV math, Streamlit UI
+- Calibration, odds/EV math, React production UI (+ Streamlit legacy)
 
 ## Docs
 
@@ -48,17 +48,25 @@ Odds snapshots (free tier; optional):
 wnba-odds-snapshot
 ```
 
-## UI
+## UI (primary)
+
+React product site + FastAPI:
 
 ```bash
-streamlit run app/Home.py
+# terminal 1 — API
+wnba-api
+
+# terminal 2 — web
+cd web && npm install && npm run dev
 ```
 
-Then open **http://127.0.0.1:8501**
+Open **http://127.0.0.1:5173**
 
-- **Home** — slate probabilities for a date  
-- **Game Detail** — one game + optional market inputs + SHAP  
-- **Backtest** / **Data Quality** — metrics and DQ  
+- **Slate** — match board with calibrated P(Home), margin, sigma, BET/PASS  
+- **Game Detail** — market inputs, EV/edge/Kelly, SHAP drivers  
+- **Backtest** / **Data Quality** — walk-forward metrics and DQ  
+
+Legacy Streamlit (optional): `streamlit run app/Home.py` → http://127.0.0.1:8501
 
 ## Notes
 

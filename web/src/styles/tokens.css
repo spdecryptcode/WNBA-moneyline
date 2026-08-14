@@ -1,0 +1,86 @@
+:root {
+  --ink: #061018;
+  --ink-2: #0d1c28;
+  --mist: #f0f4f8;
+  --mist-2: #e2e9f0;
+  --mint: #2ee6a8;
+  --mint-deep: #12b87f;
+  --coral: #ff4d3a;
+  --steel: #7a8b9a;
+  --line: rgba(6, 16, 24, 0.1);
+  --line-bright: rgba(255, 255, 255, 0.12);
+  --font-display: "Big Shoulders Display", Impact, sans-serif;
+  --font-body: "Figtree", system-ui, sans-serif;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --radius: 2px;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 240;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.45;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes fillCenter {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes marqueee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}

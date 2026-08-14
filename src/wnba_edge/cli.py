@@ -59,3 +59,19 @@ def odds_snapshot_main(argv: list[str] | None = None) -> None:
 
     df = fetch_odds_snapshot()
     print(f"Snapshot rows: {len(df)}")
+
+
+def api_main(argv: list[str] | None = None) -> None:
+    import uvicorn
+
+    p = argparse.ArgumentParser(description="Serve WNBA Edge HTTP API")
+    p.add_argument("--host", default="127.0.0.1")
+    p.add_argument("--port", type=int, default=8000)
+    p.add_argument("--reload", action="store_true")
+    args = p.parse_args(argv)
+    uvicorn.run(
+        "wnba_edge.api.app:app",
+        host=args.host,
+        port=args.port,
+        reload=args.reload,
+    )

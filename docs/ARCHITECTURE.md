@@ -28,7 +28,7 @@ SportsDataverse parquet ──► raw/ ──► cleaning/QA ──► curated/
 | Walk-forward by season | Time-aware validation; no random leakage |
 | Closing odds never a feature | Prevents inflated backtests |
 | Free data only | SportsDataverse + Odds API free tier |
-| Streamlit UI | Local I/O for slate + game detail |
+| React + FastAPI UI | Production slate / game detail / backtest / DQ |
 
 ## Modules (`src/wnba_edge/`)
 
@@ -41,6 +41,7 @@ SportsDataverse parquet ──► raw/ ──► cleaning/QA ──► curated/
 | `models/` | Train, distribute probs, calibrate, predict |
 | `odds/` | American odds, vig removal, EV, Kelly, snapshots |
 | `explain/` | SHAP drivers for prediction cards |
+| `api/` | FastAPI JSON for the React frontend |
 | `backtest/` / `monitoring/` | Evaluation / drift hooks (expand over time) |
 
 ## Artifacts
